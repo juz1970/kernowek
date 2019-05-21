@@ -8,46 +8,54 @@ def mutation():
     a1=[i for i, xx in enumerate(glist2) if xx == ('(f),')]
 
     try:
-        for i in range(len(glist1)):
+
+		for i in range(len(glist1)):
             mut1=(glist1[a1[i]])
             fnoun=(mut1[0])
             print(fnoun)
-            if fnoun in mutlist1:
+            
+			if fnoun in mutlist1:
                 print('yes')
                 word1=(mut1[0:(len(mut1))])
                 mut2= ( smut[(mutlist1.index(fnoun))] + (mut1[1:(len(mut1))]))
-                if word1 in f:
+                
+				if word1 in f:
                     a2=(f.index(word1))
-                    if e[a2-1] == 'art,':
+                    
+					if e[a2-1] == 'art,':
                         f.pop(a2)
                         f.insert(a2,mut2)
+						
     except:
         IndexError
-    a2=[i for i, zz in enumerate(f) if zz == ('ha')]
-    for z in range(len(a2)):
+    
+	a2=[i for i, zz in enumerate(f) if zz == ('ha')]
+    
+	for z in range(len(a2)):
         a3=a2[z]+1
         a4=(f[a3])
-        if a4[0] in vowels:
+        
+		if a4[0] in vowels:
             f.pop(a3-1)
             f.insert(a3-1,'hag')
-#        print(' '.join(f))
 
 def get(a):
-    x=0
-    #try:
-    b=a.split()
+    
+	x=0
+	b=a.split()
     length=len(b)
-    while(x<length):
+    
+	while(x<length):
         if(b[x]=='a'):
             b.remove(b[x])
             length=length-1  
             continue
-        x+=1
-    for y in range(len(b)):
+ 
+		x+=1
+    
+	for y in range(len(b)):
         c=b.pop(0)
         match(c)
-	#except:
-		#AttributeError
 
 def match(c):
 
@@ -75,7 +83,8 @@ def transform():
     a0=list(enumerate(e))
 
     try:
-        for i in range(len(e)-1):
+        
+		for i in range(len(e)-1):
             if 'adj,' in a0[i] and 'n,' in a0[i+1]:
                 b1=f.pop(i)
                 b2=e.pop(i+1)
@@ -94,6 +103,7 @@ def transform():
                 d2=e.pop(i+3)
                 f.insert(i,d1)
                 e.insert(i,d2)
+				
     except:
         IndexError
 		
@@ -104,15 +114,16 @@ def main():
    
     if a == None:
         a=''
-    elif a != None:
+    
+	elif a != None:
 
         get(a)
         transform()
         mutation()
         
-    print('<font size="+0.7">Enter English text / Entra tekst Sowesnak:<br><form name="f" action="http://www.knok.cymru/cgi-bin/test.py" method="post"><textarea name="chars" rows="10" cols="50">'+a+'</textarea><br><br><input type="submit" Treylya / Translate";><br>')
+    	print('<font size="+0.7">Enter English text / Entra tekst Sowesnak:<br><form name="f" action="http://www.knok.cymru/cgi-bin/test.py" method="post"><textarea name="chars" rows="10" cols="50">'+a+'</textarea><br><br><input type="submit" Treylya / Translate";><br>')
 
-    print('<br><font size="+0.7">Treylyans Kernewek / Cornish translation:<br><textarea name="chars" rows="10" cols="50">'+' '.join(f)+'</textarea></font></form></font><br>')
+    	print('<br><font size="+0.7">Treylyans Kernewek / Cornish translation:<br><textarea name="chars" rows="10" cols="50">'+' '.join(f)+'</textarea></font></form></font><br>')
 
 print("Content-Type: text/html\n\n")
 
