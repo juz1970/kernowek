@@ -5,11 +5,12 @@
 import re, cgi, cgitb; cgitb.enable()
 
 def mutation():
-    a1=[i for i, xx in enumerate(glist2) if xx == ('(f),')]
+    
+	a1=[i for i, xx in enumerate(glist2) if xx == ('(f),')]
 
     try:
 
-		for i in range(len(glist1)):
+	for i in range(len(glist1)):
             mut1=(glist1[a1[i]])
             fnoun=(mut1[0])
             print(fnoun)
